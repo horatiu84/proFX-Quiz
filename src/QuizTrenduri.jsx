@@ -457,10 +457,34 @@ export default function QuizTrenduri() {
                       </div>
                       <div className="flex justify-between mt-8 text-sm text-gray-600">
                         <div className="text-left">
+                          <div
+                            style={{
+                              fontFamily: "'Great Vibes', cursive",
+                              fontSize: "1.5rem",
+                              marginTop: "0.2rem",
+                              color: "#222",
+                              fontWeight: 400,
+                              letterSpacing: "1px",
+                            }}
+                          >
+                            John Pometcu
+                          </div>
                           <div>_________________</div>
                           <div className="italic">Coordonator ProFX</div>
                         </div>
                         <div className="text-right">
+                         <div
+                            style={{
+                              fontFamily: "'Great Vibes', cursive",
+                              fontSize: "1.5rem",
+                              marginTop: "0.2rem",
+                              color: "#222",
+                              fontWeight: 400,
+                              letterSpacing: "1px",
+                            }}
+                          >
+                            {username}
+                          </div>
                           <div>_________________</div>
                           <div className="italic">Cursant</div>
                         </div>
