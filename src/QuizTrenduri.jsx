@@ -36,34 +36,123 @@ const ProFxLogo = ({ width = 140, height = 60, style = {} }) => (
 
 const questions = [
   {
-    question: "Ce reprezintă un trend în analiza pieței Forex?",
+    question: "Ce înseamnă “forex”?",
     options: [
-      "Un indicator tehnic complex",
-      "Direcția generală a mișcării prețului",
-      "Valoarea totală a tranzacțiilor zilnice",
-      "O strategie de tranzacționare pe termen lung",
+      "Exercițiu Străin",
+      "Schimb Valutar ",
+      "Doar Pentru Uz Extern",
+      "Schimb Formal",
     ],
     answer: 1,
   },
   {
-    question: "Cum arată un trend ascendent?",
+    question: "Care este perechea valutară cunoscută ca fiind „majoră”?",
+    options: ["GBP/CAD", "USD/JPY", "EUR/USD ", "AUD/NZD"],
+    answer: 2,
+  },
+  {
+    question: "Ce este un „pip” în tranzacționarea Forex?",
     options: [
-      "Maxime mai mici și minime mai mici",
-      "Mișcări orizontale între suport și rezistență",
-      "Maxime mai mari și minime mai mari",
-      "Preț constant fără variații",
+      "O metodă de finanțare a contului",
+      "Comisionul brokerului",
+      "Cea mai mică modificare de preț pe care o poate avea o pereche valutară",
+      "O metodă de predicție",
     ],
     answer: 2,
   },
   {
-    question: "Ce caracterizează un trend lateral?",
+    question:
+      "La ce oră se deschide în mod normal piața Forex duminica (ora UTC)?",
+    options: ["00:00", "22:00", "14:00", "06:00"],
+    answer: 1,
+  },
+  {
+    question: "Ce este un ordin de tip stop-loss?",
     options: [
-      "Prețul urcă constant",
-      "Prețul scade constant",
-      "Prețul se mișcă într-un interval fix fără direcție clară",
-      "Prețul atinge maxime istorice",
+      "Un ordin care închide automat o tranzacție la un anumit nivel de pierdere ",
+      "Un punct de intrare pe piață",
+      "O metodă de creștere a poziției",
+      "Un instrument de conversie valutară",
+    ],
+    answer: 0,
+  },
+  {
+    question: "Ce reprezintă levierul (leverage) în tranzacționarea Forex?",
+    options: [
+      "Un tip de indicator",
+      "O tehnică garantată de profit",
+      "Utilizarea fondurilor împrumutate pentru a mări expunerea unei tranzacții",
+      "Un serviciu de semnale",
     ],
     answer: 2,
+  },
+  {
+    question: "Ce descrie cel mai bine termenul „spread”?",
+    /* 
+    •	Diferența dintre prețul de deschidere și cel de închidere
+    •	Diferența dintre maximul și minimul zilei
+    •	Diferența dintre prețul de cumpărare (bid) și cel de vânzare (ask) ✅
+    •	Rata procentuală a unui câștig
+    */
+    options: [
+      "Diferența dintre prețul de deschidere și cel de închidere",
+      "Diferența dintre maximul și minimul zilei",
+      "Diferența dintre prețul de cumpărare (bid) și cel de vânzare (ask)",
+      "Rata procentuală a unui câștig",
+    ],
+    answer: 2,
+  },
+  {
+    question: "Ce este un lot în tranzacționarea Forex?",
+    /* 
+    •	O pierdere maximă
+    •	O gamă de prețuri
+    •	O unitate de măsură pentru volumul unei tranzacții ✅
+    •	O direcție de trend
+
+    */
+    options: [
+      "O pierdere maximă",
+      "O gamă de prețuri",
+      "O unitate de măsură pentru volumul unei tranzacții",
+      "O direcție de trend",
+    ],
+    answer: 2,
+  },
+  {
+    question:
+      "Ce indicator este folosit în principal pentru a identifica condiții de supracumpărare sau supravânzare?",
+    /* 
+    •	Benzile Bollinger
+    •	RSI (Indicele de Forță Relativă) ✅
+    •	MACD
+    •	Nivelurile Fibonacci
+    */
+    options: [
+      "Benzile Bollinger",
+      "RSI (Indicele de Forță Relativă)",
+      "MACD",
+      "Nivelurile Fibonacci",
+    ],
+    answer: 1,
+  },
+  {
+    question:
+      "Care este principalul risc al utilizării unui levier mare în Forex?",
+    /* 
+    •	•	Viteză de execuție mai lentă
+    •	Lărgirea spread-ului
+    •	Pierderi amplificate ✅
+    •	Program de tranzacționare restricționat
+
+    */
+    options: [
+      "Viteză de execuție mai lentă",
+      "Lărgirea spread-ului",
+      "Program de tranzacționare restricționat",
+      "Pierderi amplificate",
+    ],
+    answer: 3,
   },
 ];
 
@@ -122,9 +211,9 @@ export default function QuizTrenduri() {
 
   const getResultMessage = () => {
     const percentage = (score / questions.length) * 100;
-    if (percentage === 100) return "Ești maestrul trendurilor! 🧠🔥";
-    if (percentage >= 66) return "Foarte bine! Se vede că ai înțeles.";
-    if (percentage >= 33) return "E ok, dar mai aruncă un ochi pe lecție.";
+    if (percentage === 100) return "Ești maestrul Forex! 🧠🔥";
+    if (percentage >= 80) return "Foarte bine! Se vede că ai înțeles.";
+    if (percentage >= 60) return "E ok, dar mai aruncă un ochi pe lecție.";
     return "Hai că poți mai bine! Reia lecția și încearcă din nou.";
   };
 
@@ -156,7 +245,8 @@ export default function QuizTrenduri() {
     setReviewMode(false);
   };
 
-  const duration = endTime && startTime ? Math.round((endTime - startTime) / 1000) : 0;
+  const duration =
+    endTime && startTime ? Math.round((endTime - startTime) / 1000) : 0;
   const scorePercentage = (score / questions.length) * 100;
 
   return (
@@ -166,7 +256,9 @@ export default function QuizTrenduri() {
       </div>
       {!isStarted ? (
         <div className="text-center">
-          <h1 className="text-2xl font-bold mb-4">Introdu numele pentru a începe testul</h1>
+          <h1 className="text-2xl font-bold mb-4">
+            Introdu numele pentru a începe testul
+          </h1>
           <input
             ref={inputRef}
             type="text"
@@ -183,15 +275,24 @@ export default function QuizTrenduri() {
           </button>
         </div>
       ) : !showResult && !reviewMode ? (
-        <div key={currentQuestion} className="transition-opacity duration-500 ease-in-out">
+        <div
+          key={currentQuestion}
+          className="transition-opacity duration-500 ease-in-out"
+        >
           <div className="mb-4 w-full bg-gray-200 rounded-full h-4">
             <div
               className="bg-blue-500 h-4 rounded-full transition-all duration-300"
-              style={{ width: `${((currentQuestion + 1) / questions.length) * 100}%` }}
+              style={{
+                width: `${((currentQuestion + 1) / questions.length) * 100}%`,
+              }}
             />
           </div>
-          <h2 className="text-lg font-semibold mb-2">Întrebare {currentQuestion + 1} din {questions.length}</h2>
-          <p className="mb-4 text-lg font-medium">{questions[currentQuestion].question}</p>
+          <h2 className="text-lg font-semibold mb-2">
+            Întrebare {currentQuestion + 1} din {questions.length}
+          </h2>
+          <p className="mb-4 text-lg font-medium">
+            {questions[currentQuestion].question}
+          </p>
           <div className="space-y-3">
             {questions[currentQuestion].options.map((option, index) => {
               let buttonClass = "bg-blue-500 hover:bg-blue-600 text-white";
@@ -222,15 +323,25 @@ export default function QuizTrenduri() {
         </div>
       ) : reviewMode ? (
         <div>
-          <h2 className="text-xl font-bold text-center mb-4">Revizuire răspunsuri</h2>
+          <h2 className="text-xl font-bold text-center mb-4">
+            Revizuire răspunsuri
+          </h2>
           {answers.map((ans, idx) => (
             <div key={idx} className="mb-4 border p-4 rounded-xl bg-gray-50">
-              <p className="font-semibold">{idx + 1}. {ans.question}</p>
+              <p className="font-semibold">
+                {idx + 1}. {ans.question}
+              </p>
               <ul className="mt-2 space-y-1">
                 {ans.options.map((opt, i) => (
                   <li
                     key={i}
-                    className={`px-2 py-1 rounded ${i === ans.correctIndex ? "bg-green-200" : i === ans.selected && !ans.correct ? "bg-red-200" : ""}`}
+                    className={`px-2 py-1 rounded ${
+                      i === ans.correctIndex
+                        ? "bg-green-200"
+                        : i === ans.selected && !ans.correct
+                        ? "bg-red-200"
+                        : ""
+                    }`}
                   >
                     {opt}
                   </li>
@@ -251,11 +362,13 @@ export default function QuizTrenduri() {
         <div className="text-center">
           <p className="text-xl font-semibold mb-4">
             Felicitări, {username}!<br />
-            Ai răspuns corect la {score} din {questions.length} întrebări în {duration} secunde.
+            Ai răspuns corect la {score} din {questions.length} întrebări în{" "}
+            {duration} secunde.
           </p>
           <p className="text-lg mb-4 italic">{getResultMessage()}</p>
           <p className="mb-6 text-sm text-gray-600">
-            Răspunsuri corecte: {score} • Greșite: {questions.length - score} • Timp total: {duration} sec
+            Răspunsuri corecte: {score} • Greșite: {questions.length - score} •
+            Timp total: {duration} sec
           </p>
           <button
             className="mb-4 px-4 py-2 bg-purple-600 text-white rounded-xl hover:bg-purple-700"
@@ -266,7 +379,7 @@ export default function QuizTrenduri() {
 
           {showResult && !reviewMode && (
             <>
-              {scorePercentage > 66 ? (
+              {scorePercentage > 80 ? (
                 <>
                   <button
                     className="mb-4 px-4 py-2 bg-green-600 text-white rounded-xl hover:bg-green-700"
@@ -287,24 +400,60 @@ export default function QuizTrenduri() {
                         backgroundRepeat: "repeat",
                       }}
                     >
-                      <ProFxLogo width={160} height={60} style={{ filter: "drop-shadow(2px 2px 2px gray)" }} />
-                      <h2 className="text-4xl mb-2" style={{ fontFamily: "'Great Vibes', cursive" }}>
+                      <ProFxLogo
+                        width={160}
+                        height={60}
+                        style={{ filter: "drop-shadow(2px 2px 2px gray)" }}
+                      />
+                      <h2
+                        className="text-4xl mb-2"
+                        style={{ fontFamily: "'Great Vibes', cursive" }}
+                      >
                         Diplomă de Merit
                       </h2>
                       <p className="text-lg mt-2">Se acordă cu onoare lui</p>
-                      <p className="text-2xl font-semibold text-blue-700 mt-2 mb-4">{username}</p>
-                      <p className="text-gray-800 text-md">
-                        pentru finalizarea cu succes a testului despre <strong>trenduri</strong> în cadrul academiei
+                      <p className="text-2xl font-semibold text-blue-700 mt-2 mb-4">
+                        {username}
                       </p>
-                      <p className="text-gray-800 font-semibold mt-2 mb-4">ProFX – Curs Forex</p>
-                      <div className="inline-block mt-4 px-6 py-2 bg-blue-100 border border-blue-400 rounded-full font-semibold text-blue-800">
-                        Scor: {score} / {questions.length}
+                      <p className="text-gray-800 text-md">
+                        pentru finalizarea cu succes a testului despre{" "}
+                        <strong>fundamentele pieței Forex</strong> în cadrul
+                        academiei
+                      </p>
+                      <p className="text-gray-800 font-semibold mt-2 mb-1">
+                        ProFX – Curs Forex
+                      </p>
+                      <div
+                        style={{
+                          display: "flex",
+                          justifyContent: "center",
+                        }}
+                      >
+                        <div
+                          style={{
+                            padding: "0 24px",
+                            fontWeight: "600",
+                            color: "#1e40af",
+                            fontSize: "16px",
+                            lineHeight: "40px",
+                            height: "40px",
+                            textAlign: "center",
+                            fontFamily: "Arial, sans-serif",
+                            display: "block",
+                          }}
+                        >
+                          Scor: {score} / {questions.length}
+                        </div>
                       </div>
                       <div
-                        className="mt-4 p-4 rounded-xl text-white font-medium"
-                        style={{ background: "linear-gradient(to right, #4facfe, #00f2fe)" }}
+                        className="mt-2 p-4 rounded-xl text-white font-medium"
+                        style={{
+                          background:
+                            "linear-gradient(to right, #4facfe, #00f2fe)",
+                        }}
                       >
-                        „Felicitări! Primul pas spre succesul în trading este în spate. Ține-o tot așa!” 🚀📈
+                        „Felicitări! Primul pas spre succesul în trading este în
+                        spate. Ține-o tot așa!” 🚀📈
                       </div>
                       <div className="flex justify-between mt-8 text-sm text-gray-600">
                         <div className="text-left">
@@ -317,7 +466,8 @@ export default function QuizTrenduri() {
                         </div>
                       </div>
                       <p className="text-xs text-gray-400 mt-2">
-                        Cod diplomă: {username.slice(0, 3).toUpperCase()}-{Date.now().toString().slice(-5)}
+                        Cod diplomă: {username.slice(0, 3).toUpperCase()}-
+                        {Date.now().toString().slice(-5)}
                       </p>
                       <p className="text-right text-xs text-gray-400 mt-2">
                         {new Date().toLocaleDateString("ro-RO")} • ProFX Academy
