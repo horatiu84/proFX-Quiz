@@ -34,6 +34,39 @@ const ProFxLogo = ({ width = 140, height = 60, style = {} }) => (
   </svg>
 );
 
+const ProFxLogoNew = ({ width = 140, height = 60, style = {} }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 260 100"
+    width={width}
+    height={height}
+    style={style}
+  >
+    {/* Fără background negru */}
+    <text
+      x="20"
+      y="70"
+      fontFamily="Arial, sans-serif"
+      fontWeight="300"
+      fontSize="64"
+      fill="#d3d3d3"
+    >
+      Pro
+    </text>
+    <rect x="130" y="18" width="100" height="64" rx="8" ry="8" fill="#c89b00" />
+    <text
+      x="148"
+      y="66"
+      fontFamily="Arial, sans-serif"
+      fontWeight="700"
+      fontSize="48"
+      fill="#000000"
+    >
+      FX
+    </text>
+  </svg>
+);
+
 const questions = [
   {
     question: "Ce înseamnă “forex”?",
@@ -390,79 +423,60 @@ export default function QuizTrenduri() {
                   <div className="text-center">
                     <div
                       ref={diplomaRef}
-                      className="w-full max-w-md mx-auto border-8 p-8 rounded-xl shadow-lg text-center bg-white relative"
+                      className="w-full max-w-md mx-auto border-8 p-8 rounded-xl shadow-lg text-center relative"
                       style={{
                         fontFamily: "Georgia, serif",
-                        borderColor: "#c89b00",
+                        borderColor: "#c89b00", // rama aurie/galbenă
                         borderStyle: "double",
-                        backgroundImage:
-                          "url('https://www.transparenttextures.com/patterns/paper-fibers.png')",
-                        backgroundRepeat: "repeat",
+                        backgroundColor: "#000000", // fundal negru
+                        color: "#ffffff", // text alb
                       }}
                     >
-                      <ProFxLogo
-                        width={160}
-                        height={60}
-                        style={{ filter: "drop-shadow(2px 2px 2px gray)" }}
-                      />
+                      <ProFxLogo width={160} height={60} />
+
                       <h2
                         className="text-4xl mb-2"
                         style={{ fontFamily: "'Great Vibes', cursive" }}
                       >
                         Diplomă de Merit
                       </h2>
+
                       <p className="text-lg mt-2">Se acordă cu onoare lui</p>
-                      <p className="text-2xl font-semibold text-blue-700 mt-2 mb-4">
+
+                      <p
+                        className="text-2xl font-semibold mt-2 mb-4"
+                        style={{ color: "#c8ac00" }}
+                      >
                         {username}
                       </p>
-                      <p className="text-gray-800 text-md">
+
+                      <p className="text-gray-300 text-md">
                         pentru finalizarea cu succes a testului despre{" "}
                         <strong>fundamentele pieței Forex</strong> în cadrul
                         academiei
                       </p>
-                      <p className="text-gray-800 font-semibold mt-2 mb-1">
+
+                      <p className="text-gray-300 font-semibold mt-2 mb-1">
                         ProFX – Curs Forex
                       </p>
-                      <div
-                        style={{
-                          display: "flex",
-                          justifyContent: "center",
-                        }}
-                      >
-                        <div
-                          style={{
-                            padding: "0 24px",
-                            fontWeight: "600",
-                            color: "#1e40af",
-                            fontSize: "16px",
-                            lineHeight: "40px",
-                            height: "40px",
-                            textAlign: "center",
-                            fontFamily: "Arial, sans-serif",
-                            display: "block",
-                          }}
-                        >
-                          Scor: {score} / {questions.length}
-                        </div>
+
+                      <div className="mt-1 mb-1 text-gray-300 font-semibold text-md">
+                        Scor: {score} / {questions.length}
                       </div>
-                      <div
-                        className="mt-2 p-4 rounded-xl text-white font-medium"
-                        style={{
-                          background:
-                            "linear-gradient(to right, #4facfe, #00f2fe)",
-                        }}
-                      >
+
+                      <div className="mt-2 p-4 rounded-xl font-medium">
                         „Felicitări! Primul pas spre succesul în trading este în
-                        spate. Ține-o tot așa!” 🚀📈
+                        spate. Ține-o tot așa!”
                       </div>
-                      <div className="flex justify-between mt-8 text-sm text-gray-600">
+
+                      <div className="flex justify-between mt-8 text-sm text-gray-400">
                         <div className="text-left">
                           <div
                             style={{
                               fontFamily: "'Great Vibes', cursive",
                               fontSize: "1.5rem",
                               marginTop: "0.2rem",
-                              color: "#222",
+                              color: "#c8ac00",
                               fontWeight: 400,
                               letterSpacing: "1px",
                             }}
@@ -472,13 +486,14 @@ export default function QuizTrenduri() {
                           <div>_________________</div>
                           <div className="italic">Coordonator ProFX</div>
                         </div>
+
                         <div className="text-right">
-                         <div
+                          <div
                             style={{
                               fontFamily: "'Great Vibes', cursive",
                               fontSize: "1.5rem",
                               marginTop: "0.2rem",
-                              color: "#222",
+                              color: "#c8ac00",
                               fontWeight: 400,
                               letterSpacing: "1px",
                             }}
