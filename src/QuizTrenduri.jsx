@@ -34,38 +34,6 @@ const ProFxLogo = ({ width = 140, height = 60, style = {} }) => (
   </svg>
 );
 
-const ProFxLogoNew = ({ width = 140, height = 60, style = {} }) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 260 100"
-    width={width}
-    height={height}
-    style={style}
-  >
-    {/* Fără background negru */}
-    <text
-      x="20"
-      y="70"
-      fontFamily="Arial, sans-serif"
-      fontWeight="300"
-      fontSize="64"
-      fill="#d3d3d3"
-    >
-      Pro
-    </text>
-    <rect x="130" y="18" width="100" height="64" rx="8" ry="8" fill="#c89b00" />
-    <text
-      x="148"
-      y="66"
-      fontFamily="Arial, sans-serif"
-      fontWeight="700"
-      fontSize="48"
-      fill="#000000"
-    >
-      FX
-    </text>
-  </svg>
-);
 
 const questions = [
   {
