@@ -13,6 +13,23 @@ const ProFxLogo = ({ width = 140, height = 60, style = {} }) => (
   />
 );
 
+// Funcție pentru a obține emoji-ul corespunzător locului
+const getPlaceEmoji = (placeText) => {
+  // Caută pattern-uri ca "Locul 2", "loc 3", sau doar "2"
+  const placeNumber = placeText.toLowerCase().match(/(?:(?:locul?|loc)\s*)?(\d+)/);
+  if (!placeNumber) return "🏆";
+  
+  const number = parseInt(placeNumber[1]);
+  switch (number) {
+    case 1: return "🥇";
+    case 2: return "🥈";
+    case 3: return "🥉";
+    case 4: return "🏅";
+    case 5: return "🎖️";
+    default: return "🏆";
+  }
+};
+
 export default function DiplomaForm() {
   const [username, setUsername] = useState("");
   const [place, setPlace] = useState("");
@@ -49,6 +66,8 @@ export default function DiplomaForm() {
       });
     }, 600);
   };
+
+  const placeEmoji = getPlaceEmoji(place);
 
   return (
     <div className="max-w-xl mx-auto p-6 bg-white shadow-2xl rounded-2xl mt-10 max-h-screen overflow-auto relative">
@@ -124,7 +143,7 @@ export default function DiplomaForm() {
               {username}
             </p>
             <p className="text-gray-300 text-md">
-              🏆 Locul {place} 🏆 pentru performanță excepțională și rezultate
+              {placeEmoji} {place} {placeEmoji} pentru performanță excepțională și rezultate
               remarcabile în cadrul
             </p>
             <p className="text-gray-300 font-semibold mt-2 mb-1">
@@ -132,7 +151,7 @@ export default function DiplomaForm() {
             </p>
             <div className="mt-2 p-4 rounded-xl font-medium">
               „Felicitări! În trading, victoria nu e întâmplare – e rezultatul
-              muncii, analizei și disciplinei.”
+              muncii, analizei și disciplinei."
             </div>
             <div className="flex justify-between mt-8 text-sm text-gray-400">
               <div className="text-left">
