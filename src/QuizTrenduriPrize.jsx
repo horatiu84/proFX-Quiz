@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
-import academyLogo from './utils/logo.jpg'; 
+import academyLogo from "./utils/logo.jpg";
 
 const ProFxLogo = ({ width = 140, height = 60, style = {} }) => (
   <img
@@ -124,13 +124,15 @@ export default function DiplomaForm() {
               {username}
             </p>
             <p className="text-gray-300 text-md">
-              🏆 {place} 🏆 pentru performanță excepțională și rezultate remarcabile în cadrul
+              🏆 Locul {place} 🏆 pentru performanță excepțională și rezultate
+              remarcabile în cadrul
             </p>
             <p className="text-gray-300 font-semibold mt-2 mb-1">
               Concurs Trading : {month} ProFX
             </p>
             <div className="mt-2 p-4 rounded-xl font-medium">
-              „Felicitări! În trading, victoria nu e întâmplare – e rezultatul muncii, analizei și disciplinei.”
+              „Felicitări! În trading, victoria nu e întâmplare – e rezultatul
+              muncii, analizei și disciplinei.”
             </div>
             <div className="flex justify-between mt-8 text-sm text-gray-400">
               <div className="text-left">
